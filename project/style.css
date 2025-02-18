@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Geostar+Fill&display=swap');
+
+.geostar-fill-regular {
+    font-family: "Geostar Fill", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
 :root {
     --primary-color: #646cff;
     --secondary-color: #535bf2;

@@ -45,6 +45,21 @@ function closeModal() {
     listingForm.reset();
 }
 
+function checkCategory(){
+    const category = document.getElementById('listingCategory').value;
+    if (category === 'books'){
+        return 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=500';
+    } else if (category === 'tech'){
+        return 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=500';
+    } else if (category === 'clothes'){
+        return 'https://images.unsplash.com/photo-1534120247760-621d1b3eae8f?w=500';
+    } else if (category === 'Accessories'){
+        return 'https://images.unsplash.com/photo-1556228454-5c9e3f6a3dc7?w=500';
+    } else {
+        return 'https://images.unsplash.com/photo-1520923642038-b4259acecbd7?q=80&w=2019&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
+    }
+}
+
 function addListing() {
     const newListing = {
         id: listings.length + 1,
@@ -52,10 +67,9 @@ function addListing() {
         category: document.getElementById('listingCategory').value,
         price: parseFloat(document.getElementById('price').value),
         description: document.getElementById('description').value,
-        imageUrl: document.getElementById('imageUrl').value || 'https://via.placeholder.com/300',
+        imageUrl: checkCategory(),
         discord: document.getElementById('discord').value
     };
-
     listings.unshift(newListing);
     closeModal();
     displayListings(listings);
