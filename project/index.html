@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,8 +9,8 @@
 <body>
     <header>
         <nav>
-            <a href="index.html" >
-                <div class="logo"><span style='color: black;font-family: "Geostar Fill", serif;'    >1337</span> Market</div>
+            <a href="index.html"  style="text-decoration: none;">
+                <div class="logo"><span>1337</span> Market</div>
             </a>
             <div class="search-bar">
                 <input type="text" id="search" placeholder="Search listings..." oninput="filterListings()">
@@ -25,6 +25,24 @@
                 </select>
                 <button onclick="filterListings()">Search</button>
             </div>
+            <!-- Dark and light functuality -->
+            <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+                <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+                <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+            <!--end -->
             <button id="addListingBtn" class="primary-btn">Add Listing</button>
         </nav>
     </header>
@@ -47,7 +65,7 @@
                         <option value="other">Other</option>
                     </select>
                     <input type="number" id="price" placeholder="Price (MAD)" required>
-                    <input type="text" id="discord" placeholder="Discord Username" required>
+                    <input type="text" id="intra" placeholder="intra Username" required>
                     <textarea id="description" placeholder="Description" required></textarea>
                     <input type="text" id="imageUrl" placeholder="Image URL">
                     <div class="form-buttons">

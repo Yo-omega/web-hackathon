@@ -1,5 +1,4 @@
-
-
+// Sample data structure for listings
 let listings = [
     {
         id: 1,
@@ -8,7 +7,7 @@ let listings = [
         price: 8000,
         description: "Excellent condition, 16GB RAM, 512GB SSD",
         imageUrl: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=500",
-        discord: "oayyoub"
+        intra: "oayyoub"
     },
     {
         id: 2,
@@ -17,17 +16,33 @@ let listings = [
         price: 200,
         description: "Like new condition, no highlights",
         imageUrl: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=500",
-        discord: "adiri"
+        intra: "adiri"
     }
 ];
 
+// Theme Management
+function initTheme() {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+}
+
+function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+}
+
+// DOM Elements
 const listingsContainer = document.getElementById('listings');
 const addListingBtn = document.getElementById('addListingBtn');
 const modal = document.getElementById('addListingModal');
 const listingForm = document.getElementById('listingForm');
+const themeToggle = document.getElementById('themeToggle');
 
-
+// Event Listeners
 addListingBtn.addEventListener('click', () => modal.style.display = 'block');
+themeToggle.addEventListener('click', toggleTheme);
 window.addEventListener('click', (e) => {
     if (e.target === modal) {
         closeModal();
@@ -39,25 +54,20 @@ listingForm.addEventListener('submit', (e) => {
     addListing();
 });
 
-
+// Functions
 function closeModal() {
     modal.style.display = 'none';
     listingForm.reset();
 }
 
-function checkCategory(){
-    const category = document.getElementById('listingCategory').value;
-    if (category === 'books'){
-        return 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=500';
-    } else if (category === 'tech'){
-        return 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=500';
-    } else if (category === 'clothes'){
-        return 'https://images.unsplash.com/photo-1534120247760-621d1b3eae8f?w=500';
-    } else if (category === 'Accessories'){
-        return 'https://images.unsplash.com/photo-1556228454-5c9e3f6a3dc7?w=500';
-    } else {
-        return 'https://images.unsplash.com/photo-1520923642038-b4259acecbd7?q=80&w=2019&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
-    }
+function checkCategory(category) {
+    const categoryImages = {
+        books: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=500',
+        tech: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=500',
+        clothes: 'https://images.unsplash.com/photo-1534120247760-621d1b3eae8f?w=500',
+        accessories: 'https://images.unsplash.com/photo-1556228454-5c9e3f6a3dc7?w=500'
+    };
+    return categoryImages[category.toLowerCase()] || 'https://images.unsplash.com/photo-1520923642038-b4259acecbd7?q=80&w=2019';
 }
 
 function addListing() {
@@ -67,8 +77,8 @@ function addListing() {
         category: document.getElementById('listingCategory').value,
         price: parseFloat(document.getElementById('price').value),
         description: document.getElementById('description').value,
-        imageUrl: checkCategory(),
-        discord: document.getElementById('discord').value
+        imageUrl: checkCategory(document.getElementById('listingCategory').value),
+        intra: document.getElementById('intra').value
     };
     listings.unshift(newListing);
     closeModal();
@@ -97,7 +107,7 @@ function displayListings(listingsToShow) {
                 <h3 class="listing-title">${listing.title}</h3>
                 <p class="listing-price">${listing.price} MAD</p>
                 <p class="listing-description">${listing.description}</p>
-                <button onclick="contactSeller('${listing.discord}')" class="primary-btn">
+                <button onclick="contactSeller('${listing.intra}')" class="primary-btn" style="margin-bottom: 20px;">
                     See Seller's Profile
                 </button>
             </div>
@@ -105,9 +115,10 @@ function displayListings(listingsToShow) {
     `).join('');
 }
 
-function contactSeller(discord) {
-    window.open(`https://profile.intra.42.fr/users/${discord}`);
+function contactSeller(intra) {
+    window.open(`https://profile.intra.42.fr/users/${intra}`);
 }
 
-
+// Initialize theme and listings
+initTheme();
 displayListings(listings);
