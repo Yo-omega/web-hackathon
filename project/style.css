@@ -131,14 +131,18 @@ button:hover {
     width: 24px;
     height: 24px;
 }
-
+svg:baghover {
+    color:#dd6127;  
+}
 .theme-toggle .sun-icon {
     display: none;
 }
 
 .theme-toggle .moon-icon {
     display: block;
+
 }
+git 
 
 [data-theme="dark"] .theme-toggle .sun-icon {
     display: block;
