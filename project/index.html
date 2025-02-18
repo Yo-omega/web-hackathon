@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1337 Market - Student Marketplace</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">1337 Market</div>
+            <div class="search-bar">
+                <input type="text" id="search" placeholder="Search listings...">
+                <select id="category">
+                    <option value="">All Categories</option>
+                    <option value="tech">Tech</option>
+                    <option value="books">Books</option>
+                    <option value="accessories">Accessories</option>
+                    <option value="clothing">Clothing</option>
+                    <option value="services">Services</option>
+                </select>
+                <button onclick="filterListings()">Search</button>
+            </div>
+            <button id="addListingBtn" class="primary-btn">Add Listing</button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="listings" class="listings-grid"></section>
+
+        <!-- Add Listing Modal -->
+        <div id="addListingModal" class="modal">
+            <div class="modal-content">
+                <h2>Add New Listing</h2>
+                <form id="listingForm">
+                    <input type="text" id="title" placeholder="Title" required>
+                    <select id="listingCategory" required>
+                        <option value="">Select Category</option>
+                        <option value="tech">Tech</option>
+                        <option value="books">Books</option>
+                        <option value="accessories">Accessories</option>
+                        <option value="clothing">Clothing</option>
+                        <option value="services">Services</option>
+                    </select>
+                    <input type="number" id="price" placeholder="Price (MAD)" required>
+                    <input type="text" id="discord" placeholder="Discord Username" required>
+                    <textarea id="description" placeholder="Description" required></textarea>
+                    <input type="text" id="imageUrl" placeholder="Image URL">
+                    <div class="form-buttons">
+                        <button type="submit" class="primary-btn">Add Listing</button>
+                        <button type="button" onclick="closeModal()" class="secondary-btn">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="main.js"></script>
+</body>
+</html>
