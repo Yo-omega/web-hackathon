@@ -1,4 +1,4 @@
-// Sample data structure for listings
+
 let listings = [
     {
         id: 1,
@@ -7,7 +7,7 @@ let listings = [
         price: 8000,
         description: "Excellent condition, 16GB RAM, 512GB SSD",
         imageUrl: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=500",
-        discord: "user#1234"
+        discord: "oayyoub"
     },
     {
         id: 2,
@@ -16,17 +16,16 @@ let listings = [
         price: 200,
         description: "Like new condition, no highlights",
         imageUrl: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=500",
-        discord: "student#5678"
+        discord: "adiri"
     }
 ];
 
-// DOM Elements
 const listingsContainer = document.getElementById('listings');
 const addListingBtn = document.getElementById('addListingBtn');
 const modal = document.getElementById('addListingModal');
 const listingForm = document.getElementById('listingForm');
 
-// Event Listeners
+
 addListingBtn.addEventListener('click', () => modal.style.display = 'block');
 window.addEventListener('click', (e) => {
     if (e.target === modal) {
@@ -39,7 +38,7 @@ listingForm.addEventListener('submit', (e) => {
     addListing();
 });
 
-// Functions
+
 function closeModal() {
     modal.style.display = 'none';
     listingForm.reset();
@@ -95,5 +94,5 @@ function contactSeller(discord) {
     window.open(`https://profile.intra.42.fr/users/${discord}`);
 }
 
-// Initial display
+
 displayListings(listings);
