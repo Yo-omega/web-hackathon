@@ -91,48 +91,36 @@ function checkCategory(category) {
     || 'https://images.unsplash.com/photo-1663465374413-83cba00bff6f?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
 }
 
-function addListing() {
-    const newListing = {
-        title: document.getElementById('title').value,
-        category: document.getElementById('listingCategory').value,
-        price: parseFloat(document.getElementById('price').value),
-        description: document.getElementById('description').value,
-        imageUrl: checkCategory(document.getElementById('listingCategory').value),
-        intra: document.getElementById('intra').value
-    };
-<<<<<<< HEAD
-    // listings.unshift(newListing);
-    addListingToAPI(newListing);
-    console.log(`$listings`,newListing);
-    
-    console.log(`$listings`,newListing);
-    closeModal();
-    displayListings(listings.reverse())
+function validateImage(url, fallbackUrl) {
+    return new Promise((resolve) => {
+        const img = new Image();
+        img.src = url;
 
-=======
-
-    try {
-        const response =  fetch('http://127.0.0.1:3000/add', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(newListing)
-        });
-
-        if (!response.ok) throw new Error("Failed to add listing");
-
-        const result =  response.json();
-        console.log("Listing added:", result);
-
-        getDataFromAPI(); // Refresh listings after adding
-        closeModal(); // Close modal
-
-    } catch (error) {
-        console.error("Error:", error);
-    }
->>>>>>> 2b40e9a85da37b2a52a41f15a8e0c1d9e75a5a5b
+        img.onload = () => resolve(url);
+        img.onerror = () => resolve(fallbackUrl); 
+    });
 }
+
+function addListing() {
+    const userImageUrl = document.getElementById('imageUrl').value;
+    const fallbackImage = checkCategory(document.getElementById('listingCategory').value);
+
+    validateImage(userImageUrl, fallbackImage).then((validImageUrl) => {
+        const newListing = {
+            title: document.getElementById('title').value,
+            category: document.getElementById('listingCategory').value,
+            price: parseFloat(document.getElementById('price').value),
+            description: document.getElementById('description').value,
+            imageUrl: validImageUrl, 
+            intra: document.getElementById('intra').value
+        };
+
+        addListingToAPI(newListing);
+        closeModal();
+        displayListings(listings.reverse());
+    }).catch(error => console.error("error", error));
+}
+
 
 function filterListings() {
     const searchTerm = document.getElementById('search').value.toLowerCase();
