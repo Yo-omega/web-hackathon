@@ -10,12 +10,33 @@ async function getDataFromAPI() {
         listings = await response.json(); // Store fetched data in the listings array
         console.log("Fetched Listings:", listings);
 		
-        displayListings(listings); // Update the UI with new data
+        displayListings(listings.reverse());//e the UI with new data
     } catch (error) {
 		console.error("Error:", error);
     }
 }
 getDataFromAPI();
+
+async function addListingToAPI(newListing) {
+    console.log(`$newListing`, newListing);
+    try {
+        const response = await fetch('http://127.0.0.1:3000/add', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(newListing)
+        });
+
+        if (!response.ok) throw new Error("❌ فشل في إرسال البيانات إلى الخادم");
+
+        const result = await response.json();
+        console.log("✅ تم الإرسال بنجاح:", result);
+        getDataFromAPI();
+    } catch (error) {
+        console.error("❌ خطأ أثناء الإرسال:", error);
+    }
+}
 
 
 // Theme Management
@@ -79,9 +100,14 @@ function addListing() {
         imageUrl: checkCategory(document.getElementById('listingCategory').value),
         intra: document.getElementById('intra').value
     };
-    listings.unshift(newListing);
+    // listings.unshift(newListing);
+    addListingToAPI(newListing);
+    console.log(`$listings`,newListing);
+    
+    console.log(`$listings`,newListing);
     closeModal();
-    displayListings(listings);
+    displayListings(listings.reverse())
+
 }
 
 function filterListings() {
@@ -95,7 +121,7 @@ function filterListings() {
         return matchesSearch && matchesCategory;
     });
 
-    displayListings(filtered);
+   displayListings(filtered)
 }
 
 function displayListings(listingsToShow) {
@@ -107,7 +133,7 @@ function displayListings(listingsToShow) {
                 <p class="listing-price">${listing.price} MAD</p>
                 <p class="listing-description">${listing.description}</p>
                 <button onclick="contactSeller('${listing.intra}')" class="primary-btn" style="margin-bottom: 20px;">
-                    See Seller's Profile
+                    See Seller's Profile 
                 </button>
             </div>
         </div>
@@ -120,4 +146,4 @@ function contactSeller(intra) {
 
 // Initialize theme and listings
 initTheme();
-displayListings(listings);
+displayListings(listings.reverse);

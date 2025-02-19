@@ -6,6 +6,7 @@ const FILE_PATH = './listings.json';
 const app = express()
 const PORT = 3000;
 
+app.use(express.json());
 app.use(cors())
 
 console.log("Hello World!");
@@ -16,9 +17,9 @@ app.get('/', (req, res) => {
 })
 
 app.post('/add', (req, res) => {
+	console.log("1");
 	const newListing = req.body;
-	// addListing(newListing);
-	writeDB(newListing);
+	addListing(newListing);
 	res.json({ success: true, message: "Listing added successfully", listing: newListing });
 });
 
@@ -39,7 +40,12 @@ const readDB = () => {
 
 // Write database
 const writeDB = (data) => {
-	writeFileSync(FILE_PATH, JSON.stringify(data, null, 2), 'utf8');
+    try {
+        writeFileSync(FILE_PATH, JSON.stringify(data, null, 2), 'utf8');
+        console.log("3");
+    } catch (error) {
+        console.error("❌ خطأ أثناء تحديث الملف JSON:", error);
+    }
 };
 
 // Create a new listing
@@ -47,6 +53,7 @@ const addListing = (listing) => {
 	const db = readDB();
 	listing.id = db.length ? db[db.length - 1].id + 1 : 1; // Auto-increment ID
 	db.push(listing);
+	console.log("2");
 	writeDB(db);
 };
 
