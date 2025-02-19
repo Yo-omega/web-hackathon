@@ -7,8 +7,7 @@ const app = express()
 const PORT = 3000;
 
 app.use(cors())
-
-console.log("Hello World!");
+app.use(express.json())
 
 
 app.get('/', (req, res) => {
@@ -17,8 +16,7 @@ app.get('/', (req, res) => {
 
 app.post('/add', (req, res) => {
 	const newListing = req.body;
-	// addListing(newListing);
-	writeDB(newListing);
+	addListing(newListing);
 	res.json({ success: true, message: "Listing added successfully", listing: newListing });
 });
 

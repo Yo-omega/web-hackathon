@@ -11,7 +11,7 @@
   },
   "devDependencies": {
     "nodemon": "^3.1.9",
-    "vite": "^5.4.2"
+    "vite": "^0.10.3"
   },
   "dependencies": {
     "cors": "^2.8.5",
