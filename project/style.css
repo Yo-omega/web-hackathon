@@ -104,7 +104,9 @@ button {
 
 button:hover {
     background-color: var(--secondary-color);
+    color: white;
 }
+
 
 .primary-btn {
     background-color: var(--primary-color);
@@ -131,9 +133,10 @@ button:hover {
     width: 24px;
     height: 24px;
 }
-svg:baghover {
-    color:#dd6127;  
+.theme-toggle :hover {
+    color:#ffffff;  
 }
+
 .theme-toggle .sun-icon {
     display: none;
 }
@@ -142,7 +145,6 @@ svg:baghover {
     display: block;
 
 }
-git 
 
 [data-theme="dark"] .theme-toggle .sun-icon {
     display: block;
