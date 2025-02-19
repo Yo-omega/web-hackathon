@@ -1,26 +1,22 @@
-import { readDB, writeDB } from './index.js';
+// main.js
 
 // Sample data structure for listings
-let listings = [
-    {
-        id: 1,
-        title: "MacBook Pro 2019",
-        category: "tech",
-        price: 8000,
-        description: "Excellent condition, 16GB RAM, 512GB SSD",
-        imageUrl: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=500",
-        intra: "adiri"
-    },
-    {
-        id: 2,
-        title: "Algorithm Design Manual",
-        category: "books",
-        price: 200,
-        description: "Like new condition, no highlights",
-        imageUrl: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=500",
-        intra: "dsads"
+let listings = []; 
+async function getDataFromAPI() {
+	try {
+		const response = await fetch('http://127.0.0.1:3000'); // Fetch data from API
+        if (!response.ok) throw new Error("Failed to fetch data");
+		
+        listings = await response.json(); // Store fetched data in the listings array
+        console.log("Fetched Listings:", listings);
+		
+        displayListings(listings); // Update the UI with new data
+    } catch (error) {
+		console.error("Error:", error);
     }
-];
+}
+getDataFromAPI();
+
 
 // Theme Management
 function initTheme() {
