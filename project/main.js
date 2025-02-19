@@ -38,7 +38,6 @@ async function addListingToAPI(newListing) {
     }
 }
 
-
 // Theme Management
 function initTheme() {
     const savedTheme = localStorage.getItem('theme') || 'light';
