@@ -1,3 +1,5 @@
+import { readDB, writeDB } from './index.js';
+
 // Sample data structure for listings
 let listings = [
     {
