@@ -43,7 +43,7 @@ const writeDB = (data) => {
         writeFileSync(FILE_PATH, JSON.stringify(data, null, 2), 'utf8');
         console.log("3");
     } catch (error) {
-        console.error("❌ خطأ أثناء تحديث الملف JSON:", error);
+        console.error("❌ error in JSON", error);
     }
 };
 

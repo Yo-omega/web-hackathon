@@ -28,13 +28,13 @@ async function addListingToAPI(newListing) {
             body: JSON.stringify(newListing)
         });
 
-        if (!response.ok) throw new Error("❌ فشل في إرسال البيانات إلى الخادم");
+        if (!response.ok) throw new Error("❌ ERROR IN SERVER");
 
         const result = await response.json();
-        console.log("✅ تم الإرسال بنجاح:", result);
+        console.log("✅", result);
         getDataFromAPI();
     } catch (error) {
-        console.error("❌ خطأ أثناء الإرسال:", error);
+        console.error("❌ ERROR", error);
     }
 }
 
