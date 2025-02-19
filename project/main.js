@@ -9,7 +9,7 @@ let listings = [
         price: 8000,
         description: "Excellent condition, 16GB RAM, 512GB SSD",
         imageUrl: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=500",
-        intra: "oayyoub"
+        intra: "adiri"
     },
     {
         id: 2,
@@ -18,7 +18,7 @@ let listings = [
         price: 200,
         description: "Like new condition, no highlights",
         imageUrl: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=500",
-        intra: "adiri"
+        intra: "dsads"
     }
 ];
 
@@ -66,10 +66,11 @@ function checkCategory(category) {
     const categoryImages = {
         books: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=500',
         tech: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=500',
-        clothes: 'https://images.unsplash.com/photo-1534120247760-621d1b3eae8f?w=500',
-        accessories: 'https://images.unsplash.com/photo-1556228454-5c9e3f6a3dc7?w=500'
+        clothing: 'https://images.pexels.com/photos/298863/pexels-photo-298863.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        accessories: 'https://images.unsplash.com/3/www.madebyvadim.com.jpg?q=80&w=2082&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        services: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
     };
-    return categoryImages[category.toLowerCase()] || 'https://images.unsplash.com/photo-1520923642038-b4259acecbd7?q=80&w=2019';
+    return categoryImages[category.toLowerCase()] || 'https://images.unsplash.com/photo-1663465374413-83cba00bff6f?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
 }
 
 function addListing() {
