@@ -4,13 +4,16 @@
 let listings = []; 
 async function getDataFromAPI() {
 	try {
-		const response = await fetch('http://127.0.0.1:3000'); // Fetch data from API
+        // Fetch data from API
+		const response = await fetch('http://127.0.0.1:3000'); 
         if (!response.ok) throw new Error("Failed to fetch data");
-		
-        listings = await response.json(); // Store fetched data in the listings array
+        
+		// Store fetched data in the listings array
+        listings = await response.json();
         console.log("Fetched Listings:", listings);
-		
-        displayListings(listings.reverse());//e the UI with new data
+
+		//e the UI with new data
+        displayListings(listings.reverse());
     } catch (error) {
 		console.error("Error:", error);
     }
