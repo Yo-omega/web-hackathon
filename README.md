@@ -14,7 +14,7 @@ A **web-based platform** designed for **1337 students** to **buy, sell, exchange
 - **Backend**: Node.js (if applicable)
 - **Database**: JSON-based storage (or database integration if used)
 - **Version Control**: Git & GitHub
-- **Communication**: Discord API (for user interactions)
+- **Communication**: Use 42.intra link to profile.
 
 ## 📂 Project Structure
 ```
@@ -23,12 +23,11 @@ project/
 ├── public/                 # Public assets (SVGs, images, etc.)
 │   ├── vite.svg            # Vite logo (if applicable)
 │   ├── javascript.svg      # JavaScript logo
-├── .gitignore              # Git ignore file
 ├── counter.js              # JavaScript logic for counters (if applicable)
 ├── index.html              # Main HTML file
-├── index.js                # Main JavaScript file
+├── index.js                # Main JavaScript file for Back-end
 ├── listings.json           # Mock data for product listings
-├── main.js                 # Core application logic
+├── main.js                 # Core application logic and main for front-end
 ├── package.json            # Project dependencies and metadata
 ├── package-lock.json       # Dependency lock file
 ├── style.css               # Stylesheet
@@ -37,15 +36,15 @@ project/
 ## 🔧 Installation & Setup
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/YOUR_GITHUB_USERNAME/1337-marketplace.git
+   git clone https://github.com/Yo-omega/web-hackathon.git
    ```
 2. **Navigate to the project directory:**
    ```bash
-   cd 1337-marketplace
+   cd web-hackathon
    ```
-3. **Install dependencies (if using Node.js):**
+3. **Install dependencies (better using Node.js):**
    ```bash
-   npm install
+   npm i
    ```
 4. **Run the project locally:**
    ```bash
