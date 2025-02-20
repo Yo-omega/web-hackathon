@@ -1,4 +1,4 @@
-# 1337 Marketplace
+ # 1337 Marketplace
 
 ## 📌 Overview
 A **web-based platform** designed for **1337 students** to **buy, sell, exchange products and services**, and facilitate **peer-to-peer deliveries** within the campus. This project combines elements from **Avito (buy & sell), Glovo (delivery services), and freelance platforms** to create a tailored experience for 1337 students.
@@ -12,9 +12,9 @@ A **web-based platform** designed for **1337 students** to **buy, sell, exchange
 ## 🛠️ Tech Stack
 - **Frontend**: HTML, CSS, JavaScript
 - **Backend**: Node.js
-- **Database**: JSON-based storage (or database integration if used)
+- **Database**: JSON-based storage (or database integration if future)
 - **Version Control**: Git & GitHub
-- **Communication**: Use 42.intra link to profile.
+- **Communication**: Use 42 intra-profile links.
 
 ## 📂 Project Structure
 ```
@@ -40,7 +40,7 @@ project/
    ```
 2. **Navigate to the project directory:**
    ```bash
-   cd web-hackathon
+   cd web-hackathon/project
    ```
 3. **Install dependencies (better using Node.js):**
    ```bash
@@ -53,9 +53,9 @@ project/
    or simply open `index.html` in a browser.
 
 ## 📜 Usage Guide
-1. **Listing Items:** Navigate to the product section, click "Add Item," and fill in the details.
-2. **Finding Services:** Use the search bar and filters to find the right freelancer.
-3. **Requesting a Delivery:** Post a request, wait for an available student to accept, and coordinate via Discord.
+1. **Listing Items:** Navigate the product sections or click "Add Item," and fill in the details.
+2. **Finding Services:** Use the search bar and filters to find the right product/servicen.
+3. **Requesting a Delivery:** Post a request, wait for an available student to contact you based on your intra's information.
 
 ## 🤝 Contributing
 We welcome contributions! To contribute:
