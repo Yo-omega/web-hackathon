@@ -11,7 +11,7 @@ A **web-based platform** designed for **1337 students** to **buy, sell, exchange
 
 ## 🛠️ Tech Stack
 - **Frontend**: HTML, CSS, JavaScript
-- **Backend**: Node.js (if applicable)
+- **Backend**: Node.js
 - **Database**: JSON-based storage (or database integration if used)
 - **Version Control**: Git & GitHub
 - **Communication**: Use 42.intra link to profile.
